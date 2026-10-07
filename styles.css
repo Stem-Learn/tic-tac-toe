@@ -1,0 +1,133 @@
+:root {
+  color-scheme: dark;
+  --bg: #10231f;
+  --ink: #f6f7f2;
+  --muted: #c5d1cb;
+  --cell: #1c3a34;
+  --cell-edge: #2f564d;
+  --x: #f4d35e;
+  --o: #7bdff2;
+  --win: #315e40;
+  --button: #e07a5f;
+  --button-ink: #1a120f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 1.0625rem;
+}
+
+main {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding:
+    calc(1.25rem + env(safe-area-inset-top))
+    calc(1.25rem + env(safe-area-inset-right))
+    calc(1.25rem + env(safe-area-inset-bottom))
+    calc(1.25rem + env(safe-area-inset-left));
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.status {
+  margin: 0;
+  min-height: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 650;
+}
+
+.score {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.board {
+  width: min(92vw, 22rem);
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  margin-top: 0.35rem;
+}
+
+.board button {
+  appearance: none;
+  margin: 0;
+  border: 2px solid var(--cell-edge);
+  border-radius: 0.9rem;
+  background: var(--cell);
+  color: var(--ink);
+  font: inherit;
+  font-size: clamp(2.4rem, 12vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1;
+  min-width: 0;
+  min-height: 4.5rem;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.board button.x {
+  color: var(--x);
+}
+
+.board button.o {
+  color: var(--o);
+}
+
+.board button.win {
+  background: var(--win);
+  border-color: #7dcea0;
+}
+
+.board button:disabled {
+  cursor: default;
+}
+
+.board button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+.new-game {
+  appearance: none;
+  margin-top: 0.4rem;
+  min-height: 3rem;
+  min-width: 9rem;
+  padding: 0.7rem 1.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--button);
+  color: var(--button-ink);
+  font: inherit;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.new-game:active {
+  transform: scale(0.98);
+}
